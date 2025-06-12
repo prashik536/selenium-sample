@@ -20,7 +20,7 @@ public class GoogleSearchTest {
     @Before
     public void setUp() {
         // Add Chrome options
-        ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 
         // Avoid session error by setting a unique user data dir
         options.addArguments("--user-data-dir=/tmp/selenium-profile-" + System.currentTimeMillis());
