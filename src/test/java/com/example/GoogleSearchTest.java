@@ -9,8 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.io.File;
-
 import static org.junit.Assert.assertTrue;
 
 public class GoogleSearchTest {
@@ -19,13 +17,12 @@ public class GoogleSearchTest {
 
     @Before
     public void setUp() {
-        // Add Chrome options
+        // ✅ Set path to ChromeDriver binary
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 
-        // Avoid session error by setting a unique user data dir
+        // ✅ Declare ChromeOptions before using
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--user-data-dir=/tmp/selenium-profile-" + System.currentTimeMillis());
-
-        // Headless for Jenkins/Docker
         options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
